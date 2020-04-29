@@ -1,41 +1,65 @@
 package sample;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 
 public class Main extends Application {
-private parent content(){
+
+    private static final Font font = Font.font(18);
+
+    private questionpane qpane = new questionpane();
+
+    private HBox content(){
     HBox root = new HBox();
-    root.setsize(600 ,500);
-    return parent;
+    root.setPrefSize(600 ,500);
+    qpane.setquestion(new question("how old is trump", "73", "55", "5", "64"));
+    root.getChildren().add(qpane);
+    return root;
 }
 private class questionpane extends VBox{
     private Text text = new Text();
     private List<Button> buttons = new ArrayList<>();
+    private question current;
     public questionpane(){
     super(20);
+    text.setFont(font);
         HBox hBox = new HBox();
         for (int i = 0; i < 4; i++) {
             Button knapp = new Button();
+            knapp.setFont(font);
             knapp.setPrefWidth(120);
-
+            knapp.setOnAction(event ->{
+                if (knapp.getText().equals(current.getCorrectAnswer())) {
+                    System.out.println("correct");
+                }
+                else {
+                    System.out.println("incorrect");
+                }
+            });
             buttons.add(knapp);
             hBox.getChildren().add(knapp);
         }
+        setAlignment(Pos.TOP_CENTER);
     getChildren().addAll(text, hBox);
     }
 
     public void setquestion(question question) {
     text.setText(question.name);
+    current = question;
+        Collections.shuffle(buttons);
+        for (int i = 0; i < 4; i++) {
+            buttons.get(i).setText(question.answers.get(i));
+        }
     }
 }
 
@@ -55,7 +79,7 @@ private class question{
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
         primaryStage.setTitle("Hello World");
-        primaryStage.setScene(new Scene(parent()));
+        primaryStage.setScene(new Scene(content()));
         primaryStage.show();
     }
 
