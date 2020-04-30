@@ -26,6 +26,11 @@ public class Main extends Application {
     root.getChildren().add(qpane);
     return root;
 }
+private void nextquestion(){
+        qpane.setquestion(new question("which animal is the fastest in the world", "cheetah", "rabbit", "lion", "hyena"));
+}
+
+
 private class questionpane extends VBox{
     private Text text = new Text();
     private List<Button> buttons = new ArrayList<>();
@@ -41,6 +46,7 @@ private class questionpane extends VBox{
             knapp.setOnAction(event ->{
                 if (knapp.getText().equals(current.getCorrectAnswer())) {
                     System.out.println("correct");
+                    nextquestion();
                 }
                 else {
                     System.out.println("incorrect");
