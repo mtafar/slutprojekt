@@ -26,8 +26,8 @@ public class Main extends Application {
     root.getChildren().add(qpane);
     return root;
 }
-private void nextquestion(){
-        qpane.setquestion(new question("which animal is the fastest in the world", "cheetah", "rabbit", "lion", "hyena"));
+    private void nextquestion(){
+            qpane.setquestion(new question("which animal is the fastest in the world", "cheetah", "rabbit", "lion", "hyena"));
 }
 
 
