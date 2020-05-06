@@ -29,7 +29,12 @@ public class Main extends Application {
     private void nextquestion(){
             qpane.setquestion(new question("which animal is the fastest in the world", "cheetah", "rabbit", "lion", "hyena"));
 }
+qpane nextquestion = new qpane() {
+    @Override
+    public void qpane() {
 
+    }
+};
 
 private class questionpane extends VBox{
     private Text text = new Text();
@@ -69,18 +74,7 @@ private class questionpane extends VBox{
     }
 }
 
-private class question{
-    private String name;
-    private List<String> answers;
 
-    public question(String name, String... answers){
-    this.name = name;
-    this.answers = Arrays.asList(answers);
-    }
-    public String getCorrectAnswer(){
-        return answers.get(0);
-    }
-    }
     @Override
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
