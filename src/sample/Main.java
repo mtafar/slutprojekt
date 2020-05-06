@@ -22,13 +22,11 @@ public class Main extends Application {
     private HBox content(){
     HBox root = new HBox();
     root.setPrefSize(600 ,500);
-    qpane.setquestion(new question("how old is trump", "73", "55", "5", "64"));
+
     root.getChildren().add(qpane);
     return root;
 }
-    private void nextquestion(){
-            qpane.setquestion(new question("which animal is the fastest in the world", "cheetah", "rabbit", "lion", "hyena"));
-}
+
 qpane nextquestion = new qpane() {
     @Override
     public void qpane() {

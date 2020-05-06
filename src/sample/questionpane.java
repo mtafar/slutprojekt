@@ -1,6 +1,7 @@
 package sample;
 
 import javafx.geometry.Pos;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -10,7 +11,12 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-abstract class questionpane {
+class questionpane extends Node {
+    @Override
+    public Node getStyleableNode() {
+        return null;
+    }
+
     abstract class questionpane extends VBox {
         private Text text = new Text();
         private List<Button> buttons = new ArrayList<>();
