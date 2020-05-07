@@ -7,8 +7,7 @@ class qpanequestion extends qpane {
 
     @Override
     public void qpane() {
-        private void nextquestion{
-            qpane.setquestion(new qpanequestion("which animal is the fastest in the world", "cheetah", "rabbit", "lion", "hyena"));
-        }
+        qpane.setquestion(new qpanequestion("which animal is the fastest in the world", "cheetah", "rabbit", "lion", "hyena"));
+
     }
 }
