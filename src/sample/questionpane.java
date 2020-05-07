@@ -7,8 +7,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 
-import java.lang.ref.PhantomReference;
-import java.nio.HeapByteBuffer;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -64,21 +63,7 @@ class questionpane extends Node {
         }
     }
 
-    public HeapByteBuffer answers;
 
-    public PhantomReference<Object> answers;
 
-    private class Question{
-        private String name;
-        private List<String> answers;
-
-        public Question(String name, String... answers){
-            this.name = name;
-            this.answers = Arrays.asList(answers);
-        }
-        public String getCorrectAnswer(){
-            return answers.get(0);
-        }
-    }
 
 }
