@@ -8,9 +8,8 @@ import java.util.List;
 abstract class question {
 
 
-    public String name;
 
-    public List<String> answers;
+
     public abstract String getCorrectAnswer();
     abstract class Question{
         private final List<String> answers;

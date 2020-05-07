@@ -15,7 +15,6 @@ import javafx.scene.text.Text;
 
 public class Main extends Application {
 
-    private static final Font font = Font.font(18);
 
     private questionpane qpane = new questionpane();
 
