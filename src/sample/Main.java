@@ -19,6 +19,7 @@ public class Main extends Application {
 
     private questionpane qpane = new questionpane();
 
+
     private HBox content(){
         HBox root = new HBox();
         root.setPrefSize(600 ,500);
@@ -30,6 +31,23 @@ public class Main extends Application {
         private Text text = new Text();
         private List<Button> buttons = new ArrayList<>();
         private question current;
+        int run = 0;
+        private void nextquestion(){
+
+            if (run == 0){
+                question a = new question("what is the fastest animal on land", "cheetah", "lion", "tiger", "rabbit");
+                qpane.setquestion(a);
+                current  = a;
+                run = 1;
+            }
+
+            else if (run == 1){
+                question a = new question("what is  fasndjcnswt animal on land", "cheetah", "lion", "tiger", "rabbit");
+                qpane.setquestion(a);
+                current  = a;
+                run = 1;
+            }
+        }
         public questionpane(){
             super(20);
             text.setFont(font);
@@ -41,9 +59,12 @@ public class Main extends Application {
                 knapp.setOnAction(event ->{
                     if (knapp.getText().equals(current.getCorrectAnswer())) {
                         System.out.println("correct");
+                        nextquestion();
+
                     }
                     else {
                         System.out.println("incorrect");
+
                     }
                 });
                 buttons.add(knapp);
