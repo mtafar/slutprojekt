@@ -15,27 +15,73 @@ import javafx.scene.text.Text;
 
 public class Main extends Application {
 
+    private static final Font font = Font.font(18);
 
     private questionpane qpane = new questionpane();
 
     private HBox content(){
-    HBox root = new HBox();
-    root.setPrefSize(600 ,500);
-
-    root.getChildren().add(qpane);
-    return root;
-}
-
-qpane nextquestion = new qpane() {
-    @Override
-    public void qpane() {
-
+        HBox root = new HBox();
+        root.setPrefSize(600 ,500);
+        qpane.setquestion(new question("how old is trump", "73", "55", "5", "64"));
+        root.getChildren().add(qpane);
+        return root;
     }
-};
+    private class questionpane extends VBox{
+        private Text text = new Text();
+        private List<Button> buttons = new ArrayList<>();
+        private question current;
+        public questionpane(){
+            super(20);
+            text.setFont(font);
+            HBox hBox = new HBox();
+            for (int i = 0; i < 4; i++) {
+                Button knapp = new Button();
+                knapp.setFont(font);
+                knapp.setPrefWidth(120);
+                knapp.setOnAction(event ->{
+                    if (knapp.getText().equals(current.getCorrectAnswer())) {
+                        System.out.println("correct");
+                    }
+                    else {
+                        System.out.println("incorrect");
+                    }
+                });
+                buttons.add(knapp);
+                hBox.getChildren().add(knapp);
+            }
+            setAlignment(Pos.TOP_CENTER);
+            getChildren().addAll(text, hBox);
+        }
+
+        public void setquestion(question question) {
+            text.setText(question.name);
+            current = question;
+            Collections.shuffle(buttons);
+            for (int i = 0; i < 4; i++) {
+                buttons.get(i).setText(question.answers.get(i));
+            }
+        }
+    }
+        question question = new question();
+    private class question{
+        private String name;
+        private List<String> answers;
 
 
 
+        public question(String name, String... answers) {
+            this.name = name;
+            this.answers = Arrays.asList(answers);
+        }
 
+        public question() {
+
+        }
+
+        public String getCorrectAnswer(){
+            return answers.get(0);
+        }
+    }
     @Override
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
