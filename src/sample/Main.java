@@ -42,52 +42,52 @@ public class Main extends Application {
             }
 
             else if (run == 1){
-                question a = new question("what car is from the middle east", "Lykan hypersport", "Ferrari", "Volvo", "BMW");
+                question a = new question("what car is from the middle east", "Lykan", "Ferrari", "Volvo", "BMW");
                 qpane.setquestion(a);
                 current  = a;
-                run = 1;
+                run = 2;
             }
             else if (run == 2){
                 question a = new question("which youtuber is famous from doing fifa to boxing", "KSI", "Logan Paul", "W2S", "Pewdiepie");
                 qpane.setquestion(a);
                 current  = a;
-                run = 2;
+                run = 3;
             }
             else if (run == 3){
                 question a = new question("which country is Adolf Hitler from", "Austria", "Germany", "Poland", "Belgium");
                 qpane.setquestion(a);
                 current  = a;
-                run = 3;
+                run = 4;
             }
             else if (run == 4){
-                question a = new question("what does HTML stand for", "Hyper Text Markup Language", "Hitler Took Many Lives", "Hungry Towers Many Lies", "Hassan threw Many Lights");
+                question a = new question("what do you use HTML for", "coding", "Eating", "Sleeping", "Creeping");
                 qpane.setquestion(a);
                 current  = a;
-                run = 4;
+                run = 5;
             }
             else if (run == 5){
                 question a = new question("which country has the highest population", "China", "Japan", "Russia", "USA");
                 qpane.setquestion(a);
                 current  = a;
-                run = 5;
-            }
-            else if (run == 6){
-                question a = new question("what does CSS stand for", "Cascading Style Sheets", "Corona Sweden Style", "Colombia Sell Stuff", "Call Sony Stark");
-                qpane.setquestion(a);
-                current  = a;
                 run = 6;
             }
-            else if (run == 7){
-                question a = new question("who is the richest man on earth", "Jeff Bezos", "Bill gates", "Elon Musk", "Mark Zuckerberg");
+            else if (run == 6){
+                question a = new question("what do you do with CSS", "Style", "Dance", "Eat", "Sleep");
                 qpane.setquestion(a);
                 current  = a;
                 run = 7;
             }
-            else if (run == 8){
-                question a = new question("Who is the best soccer player", "Cristiano Ronaldo", "Lionel Messi", "Serigo Ramos", "Neymar");
+            else if (run == 7){
+                question a = new question("who is the richest man on earth", "Jeff Bezos", "Bill gates", "Elon Musk", "Mark Z");
                 qpane.setquestion(a);
                 current  = a;
                 run = 8;
+            }
+            else if (run == 8){
+                question a = new question("Who is the best soccer player", "Ronaldo", "Messi", "Ramos", "Neymar");
+                qpane.setquestion(a);
+                current  = a;
+                run = 9;
             }
 
         }
